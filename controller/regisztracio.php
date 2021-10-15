@@ -61,19 +61,3 @@ if(isset($_POST['vezeteknev']))
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
-
-//buzi
-
-    /*if($DB->connect_error)
-    {
-        die('Connection failed : '.$DB->connect_error);
-    }
-    else
-    {
-        $stmt = $DB->prepare("INSERT INTO registration (vezeteknev, keresztnev, email, password, password_again, szuletesi_ido, cel) VALUES (?,?,?,?,?,?,?)");
-        $stmt -> bind_param("sssssss", $vezeteknev, $keresztnev, $email, $password, $password_again, $szuletesi_ido, $cel);
-        $stmt -> execute();
-        header('Location: /index.php?oldal=regisztracio&event=toast');
-        $stmt -> close();
-    }
-*/
