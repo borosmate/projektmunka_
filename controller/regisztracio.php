@@ -17,8 +17,8 @@ if(isset($_POST['vezeteknev']))
     if(
         empty($_POST['email']) || 
         empty($_POST['password'])  || 
-        empty($_POST['password_again']) ||
-        !isset($_POST['aszf'])
+        empty($_POST['password_again'])
+        
     )
     {
         $_SESSION['error'] = "Kötelező mezők!";
@@ -29,6 +29,12 @@ if(isset($_POST['vezeteknev']))
     {
         $_SESSION['error'] = "Jelszavak nem egyeznek!";
        return header('Location: /index.php?oldal=regisztracio');
+    }
+
+    if(!isset($_POST['aszf']))
+    {
+        $_SESSION['error'] = "Fogadd el az ÁSZF-t!";
+        return header('Location: /index.php?oldal=regisztracio');
     }
 
     //sql injekció xss támadás védése
