@@ -27,7 +27,7 @@ if(isset($_POST['vezeteknev']))
     }
     if($_POST['password'] != $_POST['password_again'])
     {
-        $_SESSION['uzenet'] = "Jelszavak nem egyeznek!";
+        $_SESSION['error'] = "Jelszavak nem egyeznek!";
        return header('Location: /index.php?oldal=regisztracio');
     }
 
