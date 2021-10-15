@@ -1,20 +1,3 @@
-<!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ]
-  }
-  ```
--->
-
 <style>
 [x-cloak] {
     display: none;
@@ -34,28 +17,28 @@
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>
                     <label for="" class="sr-only">Vezetéknév</label>
-                    <input id="vezeteknev" name="vezeteknev" type="text" autocomplete="vezeteknev" required
+                    <input id="vezeteknev" name="vezeteknev" type="text" autocomplete="vezeteknev" 
                         class="form-input appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Vezetéknév">
                 </div>
 
                 <div>
                     <label for="" class="sr-only">Keresztnév</label>
-                    <input id="keresztnev" name="keresztnev" type="text" autocomplete="keresztnev" required
+                    <input id="keresztnev" name="keresztnev" type="text" autocomplete="keresztnev" 
                         class="form-input appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Keresztnév">
                 </div>
 
                 <div>
                     <label for="email-address" class="sr-only">Email</label>
-                    <input id="email-address" name="email" type="email" autocomplete="email" required
+                    <input id="email-address" name="email" type="email" autocomplete="email" 
                         class="form-input appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Email">
                 </div>
 
                 <div>
                     <label for="" class="sr-only">Születési idő</label>
-                    <input id="szuletesi_ido" name="szuletesi_ido" type="date" autocomplete="szuletesi_ido" required
+                    <input id="szuletesi_ido" name="szuletesi_ido" type="date" autocomplete="szuletesi_ido" 
                         class="form-input appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Születési idő">
                 </div>
@@ -63,14 +46,14 @@
 
                 <div>
                     <label for="password" class="sr-only">Jelszó</label>
-                    <input id="password" name="password" type="password" autocomplete="current-password" required
+                    <input id="password" name="password" type="password" autocomplete="current-password" 
                         class="form-input appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Jelszó">
                 </div>
 
                 <div>
                     <label for="password" class="sr-only">Jelszó megerősítés</label>
-                    <input id="password_again" name="password_again" type="password" required
+                    <input id="password_again" name="password_again" type="password" 
                         class="form-input appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="Jelszó újra">
                 </div>
