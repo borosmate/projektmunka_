@@ -62,8 +62,7 @@ if(isset($_POST['vezeteknev']))
     }
 }
 
-
-
+//buzi
 
     /*if($DB->connect_error)
     {
