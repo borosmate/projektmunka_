@@ -35,11 +35,16 @@ require_once "/xampp/htdocs/settings/db.php";
         });
     </script>
 
+   
+
 </head>
 
 <body>
 
+
     <div class="container-fluid">
+    
+
 
         <?php 
         
