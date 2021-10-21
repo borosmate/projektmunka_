@@ -29,10 +29,15 @@
             <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                 alt="Workflow">
             <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                Regisztráció
+                Frissités
             </h2>
         </div>
         <form class="mt-8 space-y-6" action="../controller/regisztracio.php" method="POST" id="regisztracios-form">
+            <input type="hidden" value="<?=$felhasznal['id']?>" name="user_id">
+            <?php
+                //2. módszer a user_id átadaására
+                $_SESSION['user_id'] = $felhasznal['id']
+            ?>
             <input type="hidden" name="remember" value="true" class="form-input">
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>
