@@ -29,8 +29,8 @@ while($adatok = $result->fetch_assoc()):
             <td class="px-6 py-4 text-center"> <div class= "text-sm text-gray-900"><?=$adatok['email']?></td></div>
             <td class="px-6 py-4 text-center"> <div class= "text-sm text-gray-900"><?=$adatok['szuletesi_ido']?></td></div>
             <td class="px-6 py-4 text-center"> <div class= "text-sm text-gray-900"><?=$adatok['reg_ido']?></td></div>
-            <td class="px-6 py-4 text-center"><a href="#" class="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full">Frissités</a></td>
-            <td class="px-6 py-4 text-center"><a href="#" class="px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full">Törlés</a></td>
+            <td class="px-6 py-4 text-center"><a href="#" style="text-decoration:none" class=" px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full">Frissités</a></td>
+            <td class="px-6 py-4 text-center"><a href="#" style="text-decoration:none" class=" px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full">Törlés</a></td>
         </tr>
         <?php endwhile ?>
     </tbody>
