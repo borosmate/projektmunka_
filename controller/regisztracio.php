@@ -52,10 +52,10 @@ if(isset($_POST['vezeteknev']))
     }
     //$password = hash('sha512',$password . $salt);
     //$password = hash('sha512',$password);
-    $password_hash = hash('sha512',$password);
+    $password = hash('sha512',$password);
 
     $sql = "INSERT INTO registration (vezeteknev, keresztnev, email, password, szuletesi_ido, cel) VALUE 
-    ('{$vezeteknev}','{$keresztnev}','{$email}','{$password_hash}','{$szuletesi_ido}','{$cel}')";
+    ('{$vezeteknev}','{$keresztnev}','{$email}','{$password}','{$szuletesi_ido}','{$cel}')";
 
 
     if($DB->query($sql))

@@ -32,7 +32,7 @@
                 Frissités
             </h2>
         </div>
-        <form class="mt-8 space-y-6" action="../controller/regisztracio.php" method="POST" id="regisztracios-form">
+        <form class="mt-8 space-y-6" action="../controller/frissites.php" method="POST" id="frissites-form">
             <input type="hidden" value="<?=$felhasznal['id']?>" name="user_id">
             <?php
                 //2. módszer a user_id átadaására
@@ -103,21 +103,6 @@
                         placeholder="Cél" value="<?=$felhasznal['cel']?>"></textarea>
                 </div>
             </div>
-
-
-
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <input id="aszf" name="aszf" type="checkbox"
-                        class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                    <label for="aszf" class="ml-2 block text-sm text-gray-900">
-                        Elfogadod az ÁSZF-t?
-                    </label>
-                </div>
-
-
-            </div>
-
             <div>
                 <button type="submit"
                     class="group relative border border-transparent text-sm font-medium rounded-md text-white py-2 px-4 w-full flex justify-center transition duration-500 ease-in-out bg-indigo-600 hover:bg-green-600 transform hover:-translate-y-1 hover:scale-110 ...">
@@ -131,7 +116,7 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </span>
-                    Regisztráció
+                    Frissités
                 </button>
             </div>
         </form>
