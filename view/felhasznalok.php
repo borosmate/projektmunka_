@@ -30,7 +30,7 @@ while($adatok = $result->fetch_assoc()):
             <td class="px-6 py-4 text-center"> <div class= "text-sm text-gray-900"><?=$adatok['szuletesi_ido']?></td></div>
             <td class="px-6 py-4 text-center"> <div class= "text-sm text-gray-900"><?=$adatok['reg_ido']?></td></div>
             <td class="px-6 py-4 text-center"><a href="/?oldal=frissites&uid=<?=$adatok['id']?>" style="text-decoration:none" class=" py-2 px-4 shadow-md no-underline rounded-full bg-blue text-white font-sans font-semibold text-sm border-blue btn-primary hover:text-white hover:bg-blue-light focus:outline-none active:shadow-none mr-2">Frissités</a></td>
-            <td class="px-6 py-4 text-center"><a href="#" style="text-decoration:none" class="py-2 px-4 shadow-md no-underline rounded-full bg-red text-white font-sans font-semibold text-sm border-red btn-primary hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">Törlés</a></td>
+            <td class="px-6 py-4 text-center"><a href="../controller/torles.php?uid=<?=$adatok['id']?>" style="text-decoration:none" class="py-2 px-4 shadow-md no-underline rounded-full bg-red text-white font-sans font-semibold text-sm border-red btn-primary hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">Törlés</a></td>
         </tr>
         <?php endwhile ?>
     </tbody>
