@@ -9,6 +9,7 @@ $password = $_POST['password'];
 $password_again = $_POST['password_again'];
 $szuletesi_ido = $_POST['szuletesi_ido'];
 $cel = $_POST['cel'];
+$duplicate=mysqli_query($DB,"select * from registration where email='$email'");
 
 if(isset($_POST['vezeteknev']))
 {
@@ -54,10 +55,18 @@ if(isset($_POST['vezeteknev']))
     //$password = hash('sha512',$password);
     $password = hash('sha512',$password);
 
-    $sql = "INSERT INTO registration (vezeteknev, keresztnev, email, password, szuletesi_ido, cel) VALUE 
-    ('{$vezeteknev}','{$keresztnev}','{$email}','{$password}','{$szuletesi_ido}','{$cel}')";
 
 
+    if(mysqli_num_rows($duplicate)>0)
+    {
+        $_SESSION['error'] = "Email használatban!";
+        return header('Location: /index.php?oldal=regisztracio');
+    }
+    else
+    {
+        $sql = "INSERT INTO registration (vezeteknev, keresztnev, email, password, szuletesi_ido, cel) VALUE 
+        ('{$vezeteknev}','{$keresztnev}','{$email}','{$password}','{$szuletesi_ido}','{$cel}')";
+    }
     if($DB->query($sql))
     {
         $_SESSION['uzenet'] = "Sikeres regisztracio";
