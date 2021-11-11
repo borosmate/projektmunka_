@@ -76,11 +76,33 @@ if(isset($_POST['vezeteknev']))
         $_SESSION['uzenet'] = "Sikeres módosítás!";
         header("Location: " . $_SERVER['HTTP_REFERER']);
     }
+        if(is_uploaded_file($_FILES['profilkep']['tmp_name']))
+            {
+                if(
+                    $_FILES['profilkep']['type']!='image/png' &&
+                    $_FILES['profilkep']['type']!='image/jpeg'
+                   )
+                   {
+                    $_SESSION['error'] = "Érvénytelen képformátum (csak .jpeg vagy .png!";
+                    return header('Location: ' . $_SERVER['HTTP_REFERER']);
+                   }
+                    mkdir('../img/profilkep/'.$_SESSION['user_id']);
+
+                    $ext = pathinfo($_FILES['profilkep']['name']);
+
+                $profilpath = "../img/profilkep/{$_SESSION['user_id']}/profilkep.".$ext['extension'];
+
+                move_uploaded_file($_FILES['profilkep']['tmp_name'],$profilpath);
+            }
+
+            return header('Location: ' . $_SERVER['HTTP_REFERER']);
+            }
     else
     {
         $_SESSION['error'] = $DB->error;
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
-}
+
+
 
 ?>
