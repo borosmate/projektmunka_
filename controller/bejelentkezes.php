@@ -12,12 +12,15 @@
       {
          $$kulcs = $DB->real_escape_string($adat);
       }
-      $password = hash('sha512',$password . $salt);
+      $password = hash('sha512',$password);
       $sql = "SELECT * FROM registration WHERE password='{$password}' AND email='{$email}'";
       $query = $DB->query($sql);
 
       if($query->num_rows)
       {
+         $_SESSION['email'] = $query->fetch_assoc();
+         $_SESSION['uzenet'] = "Sikeres belépés! Üdv. " . $_SESSION['email']['vezeteknev'];
+         return header('Location: /index.php');
 
       }
       else
