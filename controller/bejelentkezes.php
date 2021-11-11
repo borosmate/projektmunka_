@@ -29,4 +29,9 @@
          return header('Location: /index.php?oldal=bejelentkezes');
       }
    }
+   else
+   {
+      $_SESSION['error'] = "Sikertelen belépés!";
+      return header('Location: /index.php?oldal=bejelentkezes');
+   }
 ?>
