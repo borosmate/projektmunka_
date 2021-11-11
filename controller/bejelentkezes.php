@@ -2,30 +2,28 @@
    require_once "/xampp/htdocs/settings/db.php";
 
 
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      $email = $_POST["email"];
-      $password = $_POST['password'];
+   if(
+      isset($_POST['email']) &&
+      !empty($_POST['email'])&&
+      !empty($_POST['password'])
+   )
+   {
+      foreach($_POST as $kulcs=>$adat)
+      {
+         $$kulcs = $DB->real_escape_string($adat);
+      }
       $password = hash('sha512',$password . $salt);
-   
+      $sql = "SELECT * FROM registration WHERE password='{$password}' AND email='{$email}'";
+      $query = $DB->query($sql);
 
-      
-      $sql = "SELECT id FROM registration WHERE email = '$email' and password = '$password'";
-      $result = mysqli_query($DB,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
-      
-      $count = mysqli_num_rows($result);
-      printf($count);
-		
-      if($count == 1) {
-        
-         //$_SESSION['email'] = $email;
-         
-         $_SESSION['uzenet'] = "Sikeres bejelentkezés!";
-         header("Location: /?oldal=home");
-      }else {
-        $_SESSION['error'] = "Helytelen bejelentkezési adatok!";
-         header("Location: /?oldal=bejelentkezes");
+      if($query->num_rows)
+      {
+
+      }
+      else
+      {
+         $_SESSION['error'] = "Sikertelen belépés!";
+         return header('Location: /index.php?oldal=bejelentkezes');
       }
    }
 ?>
