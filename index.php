@@ -106,7 +106,11 @@ require_once "/xampp/htdocs/settings/db.php";
             <?php #print $_SESSION['error']; ?> phpba html
             */
             ?>
-
+            <pre>
+                <?php
+                    print_r($_SESSION);
+                ?>
+            </pre>
 
             <?php 
                 ##print_r($_GET);
