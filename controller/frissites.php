@@ -56,12 +56,12 @@ if(isset($_POST['vezeteknev']))
            return header('Location: /index.php?oldal=regisztracio');
         }
         $password = hash('sha512',$password);
-        $sql = "UPDATE registration SET vezeteknev ='{$vezeteknev}', keresztnev ='{$keresztnev}', email ='{$email}', password ='{$password}', szuletesi_ido ='{$szuletesi_ido}', cel ='{$cel}' 
+        $sql = "UPDATE registration SET  vezeteknev ='{$vezeteknev}', keresztnev ='{$keresztnev}', email ='{$email}', password ='{$password}', szuletesi_ido ='{$szuletesi_ido}', cel ='{$cel}' 
         WHERE id ='{$_SESSION['user_id']}'";
     }
     else
     {
-        $sql = "UPDATE registration SET vezeteknev ='{$vezeteknev}', keresztnev ='{$keresztnev}', email ='{$email}', szuletesi_ido ='{$szuletesi_ido}', cel ='{$cel}'
+        $sql = "UPDATE registration SET  vezeteknev ='{$vezeteknev}', keresztnev ='{$keresztnev}', email ='{$email}', szuletesi_ido ='{$szuletesi_ido}', cel ='{$cel}'
         WHERE id ='{$_SESSION['user_id']}'";
     }
 

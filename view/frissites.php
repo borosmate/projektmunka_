@@ -22,11 +22,6 @@
 
 
 ?>
-        
-            <?php
-                //2. módszer a user_id átadaására
-                $_SESSION['user_id'] = $felhasznal['id']
-            ?>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
 <div class="space-y-6">
   <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
@@ -35,7 +30,13 @@
         <h3 class="text-lg font-medium leading-6 text-gray-900">Személyes adatok</h3>
       </div>
       <div class="mt-5 md:mt-0 md:col-span-2">
-        <form action="#" method="POST">
+      
+        <form action="../controller/frissites.php" method="POST" id="frissites-form">
+        <input type="hidden" value="<?=$felhasznal['id']?>" name="user_id">
+        <?php
+                //2. módszer a user_id átadaására
+                $_SESSION['user_id'] = $felhasznal['id']
+            ?>
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
               <label for="first-name" class="block text-sm font-medium text-gray-700">Vezetéknév</label>
