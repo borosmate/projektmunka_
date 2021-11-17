@@ -72,10 +72,30 @@ require_once "/xampp/htdocs/settings/db.php";
 
         
         ?>
+        <script>
+            function removealert(){
+                var url2 = window.location.href;
+                let url = new URL(url2);
+                console.log("URL: "+ url.toString());
+ 
+                let params = new URLSearchParams(url.search);
+                console.log("querys: " + params.toString());
 
+                // Delete the printer  .
+                params.delete('alert'); 
+
+                //Query string is now gone
+                console.log("Printer Removed: " + url.protocol + '//' + url.hostname + '/?' + params.toString()); 
+
+                location.replace(url.protocol + '//' + url.hostname + '/?' + params.toString())
+
+
+console.log("URL: "+ url.toString());
+        }
+        </script>
         <main>
 
-
+        
 
             <?php
                 if(isset($_SESSION['error'])):  ?>
@@ -92,9 +112,10 @@ require_once "/xampp/htdocs/settings/db.php";
   <span class="inline-block align-middle mr-8">
     <b class="capitalize">Alert!</b> <?=$_SESSION['error']?>
   </span>
-  <button class="align-middle absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-3 mr-3 outline-none focus:outline-none">
+  <button onclick = "removealert()" class="align-middle absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-3 mr-3 outline-none focus:outline-none">
     <span>×</span>
   </button>
+               
                 
                 
             <?php unset($_SESSION['error']);
@@ -114,7 +135,7 @@ require_once "/xampp/htdocs/settings/db.php";
   <span class="inline-block align-middle mr-8">
     <b class="capitalize">Alert!</b> <?=$_SESSION['uzenet']?>
   </span>
-  <button class=" absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-3 mr-3 outline-none focus:outline-none">
+  <button onclick= "removealert()" class=" absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-3 mr-3 outline-none focus:outline-none">
     <span>×</span>
   </button>
 
@@ -139,6 +160,7 @@ require_once "/xampp/htdocs/settings/db.php";
             <pre>
                 <?php
                     print_r($_SESSION);
+                   
                 ?>
             </pre>
 
