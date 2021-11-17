@@ -22,20 +22,21 @@ if(isset($_POST['vezeteknev']))
         
     )
     {
-        $_SESSION['error'] = "Kötelező mezők!";
-      return header('Location: /index.php?oldal=regisztracio');  //vissza irányítás ha nem töltötte ki a regisztráló az adatokat
+        
+       // $_SESSION['error'] = "Kötelező mezők!";
+      return header('Location: /index.php?oldal=regisztracio&alert=1');  //vissza irányítás ha nem töltötte ki a regisztráló az adatokat
       // header('Location: ' .$SERVER['HTTP_REFERER']);
     }
     if($_POST['password'] != $_POST['password_again'])
     {
-        $_SESSION['error'] = "Jelszavak nem egyeznek!";
-       return header('Location: /index.php?oldal=regisztracio');
+        
+       return header('Location: /index.php?oldal=regisztracio&alert=2');
     }
 
     if(!isset($_POST['aszf']))
     {
         $_SESSION['error'] = "Fogadd el az ÁSZF-t!";
-        return header('Location: /index.php?oldal=regisztracio');
+        return header('Location: /index.php?oldal=regisztracio&alert=3');
     }
 
     //sql injekció xss támadás védése
@@ -59,8 +60,8 @@ if(isset($_POST['vezeteknev']))
 
     if(mysqli_num_rows($duplicate)>0)
     {
-        $_SESSION['error'] = "Email használatban!";
-        return header('Location: /index.php?oldal=regisztracio');
+        
+        return header('Location: /index.php?oldal=regisztracio&alert=4');
     }
     else
     {
@@ -70,11 +71,11 @@ if(isset($_POST['vezeteknev']))
     if($DB->query($sql))
     {
         $_SESSION['uzenet'] = "Sikeres regisztracio";
-        header("Location: /?oldal=home");
+        header("Location: /?oldal=home&alert=5");
     }
     else
     {
-        $_SESSION['error'] = $DB->error;
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        
+        header('Location: ' . $_SERVER['HTTP_REFERER'.'&dberror']);
     }
 }

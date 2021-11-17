@@ -1,6 +1,7 @@
 <?php
 require_once "/xampp/htdocs/settings/db.php";
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,16 +79,45 @@ require_once "/xampp/htdocs/settings/db.php";
 
             <?php
                 if(isset($_SESSION['error'])):  ?>
-            <div class="alert alert-danger">
-
-                <?=$_SESSION['error']?> 
-            </div>
+                <div class="text-white px-6 py-1 border-0 rounded relative mb-4 bg-red-500">
+  <span class="text-xl inline-block mr-5 align-middle">
+  <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/tdrtiskw.json"
+    trigger="loop"
+    colors="primary:#ffffff,secondary:#ffffff"
+    style="width:50px;height:50px">
+</lord-icon>
+  </span>
+  <span class="inline-block align-middle mr-8">
+    <b class="capitalize">Alert!</b> <?=$_SESSION['error']?>
+  </span>
+  <button class="align-middle absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-3 mr-3 outline-none focus:outline-none">
+    <span>×</span>
+  </button>
+                
+                
             <?php unset($_SESSION['error']);
             endif?>
+            </div>
             <?php if(isset($_SESSION['uzenet'])):  ?>
-            <div class="alert alert-success">
+                <div class="text-white px-6 py-1 border-0 rounded relative mb-4 bg-green-500">
+  <span class="text-xl inline-block mr-5 align-middle">
+  <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/lupuorrc.json"
+    trigger="loop"
+    colors="primary:#ffffff,secondary:#ffffff"
+    style="width:50px;height:50px">
+</lord-icon>
+  </span>
+  <span class="inline-block align-middle mr-8">
+    <b class="capitalize">Alert!</b> <?=$_SESSION['uzenet']?>
+  </span>
+  <button class=" absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-3 mr-3 outline-none focus:outline-none">
+    <span>×</span>
+  </button>
 
-                <?=$_SESSION['uzenet']?>
                 <?php unset($_SESSION['uzenet']);
                 endif?>
             </div>
@@ -108,7 +138,7 @@ require_once "/xampp/htdocs/settings/db.php";
             ?>
             <pre>
                 <?php
-                    #print_r($_SESSION);
+                    print_r($_SESSION);
                 ?>
             </pre>
 
@@ -131,9 +161,9 @@ require_once "/xampp/htdocs/settings/db.php";
                 &&
                 !empty($_GET['event'])
                 && 
-                file_exists("view/". $_GET['event'] .".php"))
+                file_exists("settings/alert.php"))
             {
-                include "view/". $_GET['event'] .".php";
+                include "settings/alert.php";
             }else
             {
                 //include_once "view/home.php"; 

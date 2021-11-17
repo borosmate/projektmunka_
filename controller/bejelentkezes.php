@@ -19,19 +19,19 @@
       if($query->num_rows)
       {
          $_SESSION['email'] = $query->fetch_assoc();
-         $_SESSION['uzenet'] = "Sikeres belépés! Üdv. " . $_SESSION['email']['vezeteknev'];
-         return header('Location: /index.php');
+         
+         return header('Location: /index.php?alert=7');
 
       }
       else
       {
-         $_SESSION['error'] = "Sikertelen belépés!";
-         return header('Location: /index.php?oldal=bejelentkezes');
+         
+         return header('Location: /index.php?oldal=bejelentkezes&alert=8');
       }
    }
    else
    {
       $_SESSION['error'] = "Sikertelen belépés!";
-      return header('Location: /index.php?oldal=bejelentkezes');
+      return header('Location: /index.php?oldal=bejelentkezes&alert=8');
    }
 ?>

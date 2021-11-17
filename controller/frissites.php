@@ -18,6 +18,11 @@ $keresztnev = $_POST['keresztnev'];
 $email = $_POST['email'];
 $szuletesi_ido = $_POST['szuletesi_ido'];
 $cel = $_POST['cel'];
+$country = $_POST['country'];
+$city = $_POST['city'];
+$cím = $_POST['street-address'];
+$megye = $_POST['state'];
+$postal = $_POST['postal-code'];
 
 if(isset($_POST['vezeteknev']))
 {
@@ -53,15 +58,15 @@ if(isset($_POST['vezeteknev']))
         if($_POST['password'] != $_POST['password_again'])
         {
             $_SESSION['error'] = "Jelszavak nem egyeznek!";
-           return header('Location: /index.php?oldal=regisztracio');
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
         $password = hash('sha512',$password);
-        $sql = "UPDATE registration SET  vezeteknev ='{$vezeteknev}', keresztnev ='{$keresztnev}', email ='{$email}', password ='{$password}', szuletesi_ido ='{$szuletesi_ido}', cel ='{$cel}' 
+        $sql = "UPDATE registration SET cím = '{$cím}', postal = '{$postal}', megye = '{$megye}', city = '{$city}', country = '{$country}',  vezeteknev ='{$vezeteknev}', keresztnev ='{$keresztnev}', email ='{$email}', password ='{$password}', szuletesi_ido ='{$szuletesi_ido}', cel ='{$cel}' 
         WHERE id ='{$_SESSION['user_id']}'";
     }
     else
     {
-        $sql = "UPDATE registration SET  vezeteknev ='{$vezeteknev}', keresztnev ='{$keresztnev}', email ='{$email}', szuletesi_ido ='{$szuletesi_ido}', cel ='{$cel}'
+        $sql = "UPDATE registration SET cím = '{$cím}', postal = '{$postal}', megye = '{$megye}', city = '{$city}', country = '{$country}',  vezeteknev ='{$vezeteknev}', keresztnev ='{$keresztnev}', email ='{$email}', szuletesi_ido ='{$szuletesi_ido}', cel ='{$cel}'
         WHERE id ='{$_SESSION['user_id']}'";
     }
 
@@ -76,33 +81,10 @@ if(isset($_POST['vezeteknev']))
         $_SESSION['uzenet'] = "Sikeres módosítás!";
         header("Location: " . $_SERVER['HTTP_REFERER']);
     }
-        if(is_uploaded_file($_FILES['profilkep']['tmp_name']))
-            {
-                if(
-                    $_FILES['profilkep']['type']!='image/png' &&
-                    $_FILES['profilkep']['type']!='image/jpeg'
-                   )
-                   {
-                    $_SESSION['error'] = "Érvénytelen képformátum (csak .jpeg vagy .png!";
-                    return header('Location: ' . $_SERVER['HTTP_REFERER']);
-                   }
-                    mkdir('../img/profilkep/'.$_SESSION['user_id']);
-
-                    $ext = pathinfo($_FILES['profilkep']['name']);
-
-                $profilpath = "../img/profilkep/{$_SESSION['user_id']}/profilkep.".$ext['extension'];
-
-                move_uploaded_file($_FILES['profilkep']['tmp_name'],$profilpath);
-            }
-
-            return header('Location: ' . $_SERVER['HTTP_REFERER']);
-            }
     else
     {
         $_SESSION['error'] = $DB->error;
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
-
-
-
+}
 ?>

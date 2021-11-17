@@ -9,4 +9,5 @@ $salt = "fjlwelodga.ewrsdlfa.codsafs.ggregvcerrw34!!%";
 $DB   = new mysqli($host,$user,$pass,$db) or die("SQL szerver kapcsolódási hiba!");
 
 require_once 'auth.php';
+require_once 'alert.php';
 ?>
