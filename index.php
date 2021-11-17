@@ -108,7 +108,7 @@ require_once "/xampp/htdocs/settings/db.php";
             ?>
             <pre>
                 <?php
-                    print_r($_SESSION);
+                    #print_r($_SESSION);
                 ?>
             </pre>
 
